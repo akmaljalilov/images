@@ -15,7 +15,7 @@ RUN mkdir -p .android && touch .android/repositories.cfg
 #Installing Android SDK
 RUN wget -O sdk-tools.zip https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip
 RUN unzip sdk-tools.zip && rm sdk-tools.zip
-RUN mv sdk/tools Android/sdk/tools
+RUN mv tools Android/sdk/tools
 RUN cd Android/sdk/tools/bin && yes | ./sdkmanager --licenses
 RUN cd Android/sdk/tools/bin && ./sdkmanager "build-tools;30.0.2" "patcher;v4" "platform-tools" "platforms;android-30" "sources;android-30"
 ENV PATH "$PATH:/home/user/Android/sdk/platform-tools"
