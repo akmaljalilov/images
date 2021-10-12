@@ -26,6 +26,8 @@ whoami
 echo "Building and Pushing docker image"
 echo $DOCKER_BUILD
 docker build -t $DOCKER_BUILD -f $DOCKERFILE_LOC --build-arg FLUTTER_TAG=$FLUTTER_TAG .
+echo "Login AWS"
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 419737012520.dkr.ecr.us-east-1.amazonaws.com
 docker push $DOCKER_BUILD
 
 #echo "Building and Pushing docker latest"
